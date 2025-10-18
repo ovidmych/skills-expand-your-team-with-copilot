@@ -1,0 +1,89 @@
+name: Add New Activity
+description: Request to add a new extracurricular activity to the system
+title: "[New Activity]: "
+labels: ["enhancement", "activity"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Add a New Extracurricular Activity
+        Please fill out all the required information below to add a new activity to Mergington High School's activity roster.
+        
+  - type: input
+    id: activity-name
+    attributes:
+      label: Activity Name
+      description: What is the name of the activity?
+      placeholder: "e.g., Coding Club, Book Club, Volleyball Team"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Activity Description
+      description: Provide a detailed description of the activity
+      placeholder: "Describe what students will learn or do in this activity, what makes it exciting, and any special features"
+    validations:
+      required: true
+
+  - type: input
+    id: schedule-days
+    attributes:
+      label: Schedule Days
+      description: Which days of the week will the activity meet?
+      placeholder: "e.g., Monday, Wednesday, Friday OR Tuesday, Thursday"
+    validations:
+      required: true
+
+  - type: input
+    id: start-time
+    attributes:
+      label: Start Time
+      description: What time does the activity start? (Use 24-hour format HH:MM)
+      placeholder: "e.g., 15:30 for 3:30 PM, 07:00 for 7:00 AM"
+    validations:
+      required: true
+
+  - type: input
+    id: end-time
+    attributes:
+      label: End Time
+      description: What time does the activity end? (Use 24-hour format HH:MM)
+      placeholder: "e.g., 17:00 for 5:00 PM, 08:30 for 8:30 AM"
+    validations:
+      required: true
+
+  - type: input
+    id: max-participants
+    attributes:
+      label: Maximum Participants
+      description: What is the maximum number of students that can participate?
+      placeholder: "e.g., 15, 20, 30"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional Information
+      description: Any other details about the activity (teacher supervisor, location, required materials, etc.)
+      placeholder: "Supervisor: Ms. Johnson, Location: Computer Lab, Materials: Students should bring their own laptops"
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## Acceptance Criteria
+        - A new activity should be added to the database with the provided information
+        - The activity should appear in the activities list on the website
+        - Students should be able to sign up for the activity
+        - The schedule should be correctly formatted and displayed
+        
+        ## Implementation Hints
+        - Add the new activity to the `initial_activities` dictionary in `src/backend/database.py`
+        - Follow the same structure as existing activities
+        - Ensure the schedule_details object includes days array, start_time, and end_time
+        - Initialize with an empty participants list

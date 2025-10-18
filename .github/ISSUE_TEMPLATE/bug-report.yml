@@ -1,0 +1,114 @@
+name: Bug Report
+description: Report a problem or unexpected behavior in the application
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Bug Report
+        Thank you for reporting a bug! Please provide as much detail as possible to help us fix the issue quickly.
+        
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Problem Description
+      description: What is happening that shouldn't be happening?
+      placeholder: "Describe the bug in clear, simple terms. For example: 'When I try to sign up a student for Chess Club, I get an error message.'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: What steps should someone take to see this bug?
+      placeholder: |
+        1. Go to the website homepage
+        2. Click on 'Chess Club'
+        3. Enter student email 'test@mergington.edu'
+        4. Click 'Sign Up'
+        5. See error message
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What should happen instead?
+      placeholder: "The student should be successfully enrolled in Chess Club and see a confirmation message."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happens?
+      placeholder: "An error message appears saying 'Failed to update activity' and the student is not enrolled."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected-area
+    attributes:
+      label: Which part of the application is affected?
+      description: Select the area where you're experiencing the issue
+      options:
+        - Student signup/registration
+        - Activity listing/display
+        - Schedule filtering
+        - Teacher authentication
+        - Student unregistration
+        - Database/data storage
+        - User interface
+        - Other (specify in description)
+    validations:
+      required: true
+
+  - type: input
+    id: specific-activity
+    attributes:
+      label: Specific Activity (if applicable)
+      description: If the bug only affects a specific activity, which one?
+      placeholder: "e.g., Chess Club, Soccer Team"
+    validations:
+      required: false
+
+  - type: textarea
+    id: error-messages
+    attributes:
+      label: Error Messages
+      description: Copy and paste any error messages you see
+      placeholder: "Paste error messages here, including console errors if available"
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information that might be helpful
+      placeholder: "Add screenshots, browser information, or any other relevant details"
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## Acceptance Criteria
+        - The bug should be identified and root cause determined
+        - A fix should be implemented that resolves the issue
+        - The fix should not break any existing functionality
+        - The same steps to reproduce should no longer cause the bug
+        
+        ## Debugging Hints
+        - Check the FastAPI logs for any error messages
+        - Use the API documentation at `/docs` to test endpoints directly
+        - Review the relevant code in `src/backend/routers/` for the affected functionality
+        - Check the database operations in `src/backend/database.py`
+        - Verify data validation and error handling
+        - Test edge cases and boundary conditions
