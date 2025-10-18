@@ -1,0 +1,116 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for the application
+title: "[Feature]: "
+labels: ["enhancement", "feature-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Request
+        Share your idea for a new feature or improvement to the Mergington High School Activities system!
+        
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: What new feature or capability would you like to add?
+      placeholder: "Describe the feature in clear terms. For example: 'Allow students to see which activities they are already enrolled in' or 'Send email notifications when a student signs up for an activity'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-solving
+    attributes:
+      label: Problem It Solves
+      description: What problem does this feature solve? Why is it needed?
+      placeholder: "Explain the need or pain point this addresses. For example: 'Teachers currently have no way to see how many spots are left in an activity' or 'Students can accidentally sign up for conflicting activities'"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: feature-category
+    attributes:
+      label: Feature Category
+      description: What type of feature is this?
+      options:
+        - Student functionality
+        - Teacher functionality
+        - Activity management
+        - Reporting and analytics
+        - Notifications and communications
+        - Search and filtering
+        - User interface improvement
+        - Data export/import
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature?
+      options:
+        - Nice to have - Would be helpful but not urgent
+        - Important - Would significantly improve the system
+        - Critical - Needed for daily operations
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: How do you envision this feature working? (Optional but helpful)
+      placeholder: |
+        Describe how the feature should work, including:
+        - What the user would do
+        - What would be displayed or happen
+        - Any new buttons, pages, or API endpoints needed
+        
+        Example: "Add a 'My Activities' page that shows all activities the logged-in student is enrolled in, with the ability to drop out of an activity by clicking an 'Unenroll' button"
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Are there other ways to solve this problem?
+      placeholder: "Describe any alternative approaches you've considered"
+    validations:
+      required: false
+
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: Success Criteria
+      description: How will we know when this feature is successfully implemented?
+      placeholder: |
+        List specific, measurable criteria, for example:
+        - Students can view all their enrolled activities on a single page
+        - The page shows activity name, schedule, and enrollment date
+        - Students can successfully unenroll from activities
+        - Changes are reflected immediately in the database
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## Implementation Guidance
+        
+        When implementing this feature, consider:
+        - **Backend changes**: New API endpoints in `src/backend/routers/`
+        - **Frontend changes**: Updates to the UI in `src/static/`
+        - **Database changes**: New collections or fields in `src/backend/database.py`
+        - **Authentication**: Does this require teacher/admin authentication?
+        - **Validation**: What data validation is needed?
+        - **Error handling**: What could go wrong and how should it be handled?
+        - **Testing**: How can this feature be tested?
+        
+        ## Related Files
+        - API routes: `src/backend/routers/activities.py` or `src/backend/routers/auth.py`
+        - Database: `src/backend/database.py`
+        - Frontend: `src/static/index.html` and related files

@@ -1,0 +1,124 @@
+name: Modify Activity Details
+description: Request to update an existing activity's information (schedule, description, or capacity)
+title: "[Modify Activity]: "
+labels: ["enhancement", "activity"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Modify Existing Activity
+        Use this template to request changes to an existing activity's details such as schedule, description, or maximum participants.
+        
+  - type: dropdown
+    id: activity-name
+    attributes:
+      label: Activity Name
+      description: Which activity needs to be modified?
+      options:
+        - Chess Club
+        - Programming Class
+        - Morning Fitness
+        - Soccer Team
+        - Basketball Team
+        - Art Club
+        - Drama Club
+        - Math Club
+        - Debate Team
+        - Weekend Robotics Workshop
+        - Science Olympiad
+        - Sunday Chess Tournament
+        - Manga Maniacs
+        - Other (specify in details)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: what-to-change
+    attributes:
+      label: What needs to be changed?
+      description: Select all that apply
+      options:
+        - label: Description
+        - label: Schedule (days/times)
+        - label: Maximum participants
+        - label: Activity name
+
+  - type: textarea
+    id: new-description
+    attributes:
+      label: New Description (if applicable)
+      description: Provide the updated activity description
+      placeholder: "Enter the new description text here"
+    validations:
+      required: false
+
+  - type: input
+    id: new-schedule-days
+    attributes:
+      label: New Schedule Days (if applicable)
+      description: Which days should the activity meet?
+      placeholder: "e.g., Monday, Wednesday, Friday"
+    validations:
+      required: false
+
+  - type: input
+    id: new-start-time
+    attributes:
+      label: New Start Time (if applicable)
+      description: New start time in 24-hour format (HH:MM)
+      placeholder: "e.g., 15:30"
+    validations:
+      required: false
+
+  - type: input
+    id: new-end-time
+    attributes:
+      label: New End Time (if applicable)
+      description: New end time in 24-hour format (HH:MM)
+      placeholder: "e.g., 17:00"
+    validations:
+      required: false
+
+  - type: input
+    id: new-max-participants
+    attributes:
+      label: New Maximum Participants (if applicable)
+      description: New maximum number of students
+      placeholder: "e.g., 25"
+    validations:
+      required: false
+
+  - type: input
+    id: new-activity-name
+    attributes:
+      label: New Activity Name (if renaming)
+      description: The new name for the activity
+      placeholder: "e.g., Advanced Chess Club"
+    validations:
+      required: false
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason for Change
+      description: Explain why this change is needed
+      placeholder: "e.g., Need to accommodate more students, Time conflict with another activity, Teacher availability changed"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## Acceptance Criteria
+        - The specified activity should be updated with the new information
+        - All unchanged fields should remain the same
+        - The activity should continue to function properly after the update
+        - Existing student enrollments should be preserved
+        
+        ## Implementation Hints
+        - Locate the activity in `src/backend/database.py` in the `initial_activities` dictionary
+        - Update only the specified fields
+        - Maintain the data structure (especially schedule_details format)
+        - If renaming, update both the dictionary key and any references
+        - Consider data migration if this affects existing participants

@@ -1,0 +1,146 @@
+name: UI/UX Improvement
+description: Suggest improvements to the user interface or user experience
+title: "[UI/UX]: "
+labels: ["enhancement", "ui-ux"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## UI/UX Improvement Request
+        Help us make the Mergington High School Activities system easier and more pleasant to use!
+        
+  - type: dropdown
+    id: page-area
+    attributes:
+      label: Which page or area needs improvement?
+      description: Select the part of the application you want to improve
+      options:
+        - Home page / Activities listing
+        - Activity details view
+        - Sign up process
+        - Teacher login page
+        - Navigation menu
+        - Mobile view / responsive design
+        - Colors and styling
+        - Loading states and feedback
+        - Error messages
+        - Overall layout
+        - Other (specify below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-experience
+    attributes:
+      label: Current Experience
+      description: What is the current user experience that needs improvement?
+      placeholder: "Describe what users currently see or experience. For example: 'The activities list shows all activities in a plain text list, making it hard to quickly find activities by day or time' or 'Error messages are technical and confusing for teachers'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired-experience
+    attributes:
+      label: Desired Experience
+      description: What should the improved experience be like?
+      placeholder: "Describe how you want users to experience this. For example: 'Activities should be displayed as cards with clear visual separation, showing the activity name prominently, with icons for day and time' or 'Error messages should be friendly and provide clear guidance on what to do next'"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: improvement-type
+    attributes:
+      label: Type of Improvement
+      description: What kind of UI/UX issue is this?
+      multiple: true
+      options:
+        - Confusing or unclear information
+        - Difficult to navigate
+        - Not visually appealing
+        - Too many clicks required
+        - Poor mobile experience
+        - Accessibility issue
+        - Inconsistent design
+        - Slow or unresponsive
+        - Lacks helpful feedback
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user-affected
+    attributes:
+      label: Who is most affected?
+      description: Which users will benefit most from this improvement?
+      options:
+        - Students
+        - Teachers
+        - Administrators
+        - All users
+    validations:
+      required: true
+
+  - type: textarea
+    id: visual-mockup
+    attributes:
+      label: Visual Mockup or Example
+      description: Do you have a sketch, screenshot, or example of what you want? (Optional)
+      placeholder: "Describe your vision or paste a link to a similar design. You can also drag and drop an image here."
+    validations:
+      required: false
+
+  - type: textarea
+    id: specific-changes
+    attributes:
+      label: Specific Changes Requested
+      description: List specific UI/UX changes you'd like to see
+      placeholder: |
+        Be as specific as possible, for example:
+        - Change the sign up button color from blue to green
+        - Add an icon next to each activity name
+        - Make the activity schedule bold and larger
+        - Add spacing between activity cards
+        - Show a loading spinner when fetching activities
+        - Display a success message after signing up
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Impact Level
+      description: How much would this improvement help users?
+      options:
+        - Minor - Small quality of life improvement
+        - Moderate - Would make things noticeably better
+        - Major - Significantly improves usability
+        - Critical - Current design is confusing or prevents task completion
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ## Acceptance Criteria
+        - The UI/UX changes should be implemented as described
+        - The design should be consistent with the rest of the application
+        - Changes should improve usability without breaking functionality
+        - The interface should remain responsive on different screen sizes
+        - Changes should be accessible (consider keyboard navigation, screen readers, etc.)
+        
+        ## Implementation Hints
+        - Frontend files are located in `src/static/`
+        - HTML structure: `src/static/index.html`
+        - Styles: Check for existing CSS files in `src/static/`
+        - Consider using modern CSS features like Flexbox or Grid
+        - Test on different browsers and screen sizes
+        - Ensure color contrast meets accessibility standards
+        - Provide visual feedback for user interactions (loading, success, error states)
+        
+        ## Design Considerations
+        - **Consistency**: Match existing design patterns and styles
+        - **Simplicity**: Keep the interface clean and uncluttered
+        - **Feedback**: Provide clear feedback for all user actions
+        - **Accessibility**: Ensure all users can navigate and use the interface
+        - **Mobile-first**: Consider mobile users first, then scale up

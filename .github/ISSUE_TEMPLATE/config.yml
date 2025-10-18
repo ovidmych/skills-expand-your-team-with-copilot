@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://github.com/ovidmych/skills-expand-your-team-with-copilot/blob/main/docs/how-to-develop.md
+    about: Read the development guide for setup and usage instructions
+  - name: GitHub Copilot Documentation
+    url: https://docs.github.com/en/copilot
+    about: Learn more about using GitHub Copilot features
